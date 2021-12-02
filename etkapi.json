@@ -1,0 +1,207 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Court test API",
+    "description": "MELINDA FixNICS DRS integration and reports service",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://fixnics-dev01.echo.tylerfederal.com/api/endpoints"
+    }
+  ],
+  "paths": {
+    "/JCFilePostHandler/example": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns text notifying which user account has accessed the service",
+        "description": "Returns the current user account who is testing the service",
+        "responses": {
+          "201": {
+            "description": "User Found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Service not found"
+          }
+        }
+      }
+    },
+    "/JCFilePostHandler/postjcorder/{parentId}": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "This is the method we use to post a JandC order file to fixnics.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parentId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ParentId"
+          }
+        ],
+        "description": "The URL will contain the parentId which is the trackingId of the pre-existing row in the T_JC table that is considered to be the parent object that is the owner of the file we are posting.",
+        "responses": {
+          "201": {
+            "description": "Successful upload"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Service not found"
+          }
+        }
+      }
+    },
+    "/JCPostHandler/jcpkg/{id}": {
+      "get": {
+        "tags": [
+          "GET J&C Package"
+        ],
+        "summary": "API for courts to get package information from FixNICs",
+        "description": "API to allow courts to get package information for Fixnics. This method will return XML object in the body of the request. The xml object will have the structure described below.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of J and C package that needs to be fetched"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Package was returned",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/JandC"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "J and C package not found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/JCPostHandler/createjandc": {
+      "post": {
+        "tags": [
+          "POST J&C Package"
+        ],
+        "summary": "API for courts to post dispositions in FixNICs",
+        "description": "API to allow courts to post disposition packages to Fixnics. This method will accept XML object in the body of the request. The xml object will have the structure described below.",
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/JandC"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Package was received",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Service not found"
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "JandC": {
+        "type": "object",
+        "properties": {
+          "Header": {
+            "type": "object",
+            "description": "The header object"
+          },
+          "Entry": {
+            "type": "object",
+            "description": "The entry object"
+          }
+        }
+      },
+      "success": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "errorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "boolean",
+            "description": "Determines if there is an error"
+          },
+          "message": {
+            "type": "string",
+            "description": "Returns the error message"
+          }
+        }
+      }
+    }
+  }
+}
