@@ -65,7 +65,7 @@
     "/JCPostHandler/jcpkg/{id}": {
       "get": {
         "tags": [
-          "J&C Package"
+          "GET J&C Package"
         ],
         "summary": "API for courts to retrieve package information from FixNICs",
         "description": "API to allow courts to get package information for Fixnics. This method will return XML object in the body of the request. The xml object will have the structure described below.",
@@ -120,7 +120,7 @@
     "/JCPostHandler/createjandc": {
       "post": {
         "tags": [
-          "J&C Package"
+          "POST J&C Package"
         ],
         "summary": "API for courts to post dispositions in FixNICs",
         "description": "API to allow courts to post disposition packages to Fixnics. This method will accept XML object in the body of the request. The xml object will have the structure described below.",
@@ -173,11 +173,11 @@
         "properties": {
           "Header": {
             "type": "object",
-            "description": "The header object contains the XML attributes that identifies the specified court such as 'court', 'courtId', 'ecfHost', etc."
+            "description": "The header object contains the XML schema with attributes that identify the specified court such as 'court', 'courtId', 'ecfHost', etc."
           },
           "Entry": {
             "type": "object",
-            "description": "The entry object contains the XML attributes that details the court case such as 'caseId', 'defendant', 'filedDate', etc."
+            "description": "The entry object contains the XML schema with attributes that identify the court case such as 'caseId', 'defendant', 'filedDate', etc."
           }
         }
       },
