@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Court test API",
+    "title": "FixNICS DRS API",
     "description": "MELINDA FixNICS DRS integration and reports service",
     "version": "0.0.1"
   },
@@ -65,9 +65,9 @@
     "/JCPostHandler/jcpkg/{id}": {
       "get": {
         "tags": [
-          "GET J&C Package"
+          "J&C Package"
         ],
-        "summary": "API for courts to get package information from FixNICs",
+        "summary": "API for courts to retrieve package information from FixNICs",
         "description": "API to allow courts to get package information for Fixnics. This method will return XML object in the body of the request. The xml object will have the structure described below.",
         "parameters": [
           {
@@ -120,7 +120,7 @@
     "/JCPostHandler/createjandc": {
       "post": {
         "tags": [
-          "POST J&C Package"
+          "J&C Package"
         ],
         "summary": "API for courts to post dispositions in FixNICs",
         "description": "API to allow courts to post disposition packages to Fixnics. This method will accept XML object in the body of the request. The xml object will have the structure described below.",
@@ -173,11 +173,11 @@
         "properties": {
           "Header": {
             "type": "object",
-            "description": "The header object"
+            "description": "The header object contains the XML attributes that identifies the specified court such as 'court', 'courtId', 'ecfHost', etc."
           },
           "Entry": {
             "type": "object",
-            "description": "The entry object"
+            "description": "The entry object contains the XML attributes that details the court case such as 'caseId', 'defendant', 'filedDate', etc."
           }
         }
       },
