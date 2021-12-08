@@ -291,13 +291,229 @@
                 }
               },
               "countsAll": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "pendingCountOrPendingCountNumberOrPendingDisposition": {
+                    "type": "object",
+                    "properties": {
+                      "pending": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "namespaceURI": {
+                                "type": "string"
+                              },
+                              "localPart": {
+                                "type": "string"
+                              },
+                              "prefix": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "object"
+                          },
+                          "nil": {
+                            "type": "boolean"
+                          },
+                          "globalScope": {
+                            "type": "boolean"
+                          },
+                          "typeSubstitued": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "highestOffenseLevelOpen": {
+                    "type": "string"
+                  },
+                  "terminated": {
+                    "type": "object",
+                    "properties": {
+                      "terminatedCount": {
+                        "type": "string"
+                      },
+                      "terminatedCountNumber": {
+                        "type": "object"
+                      },
+                      "terminatedDisposition": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "highestOffenseLevelTerminated": {
+                    "type": "string"
+                  },
+                  "complaints": {
+                    "type": "object",
+                    "properties": {
+                      "complaintsText": {
+                        "type": "string"
+                      },
+                      "complaintsCountNumber": {
+                        "type": "string"
+                      },
+                      "complaintsDisposition": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
               },
               "alsoKnownAs": {
                 "type": "string"
               },
               "pacts": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "integer"
+                  },
+                  "caseDktNo": {
+                    "type": "string"
+                  },
+                  "dob": {
+                    "type": "string"
+                  },
+                  "sex": {
+                    "type": "string"
+                  },
+                  "race": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "weight": {
+                    "type": "integer"
+                  },
+                  "eyeColor": {
+                    "type": "string"
+                  },
+                  "hairColor": {
+                    "type": "string"
+                  },
+                  "ssn": {
+                    "type": "string"
+                  },
+                  "stateIdNo": {
+                    "type": "string"
+                  },
+                  "fbi": {
+                    "type": "string"
+                  },
+                  "ice": {
+                    "type": "string"
+                  },
+                  "usms": {
+                    "type": "string"
+                  },
+                  "driverLicenseNo": {
+                    "type": "string"
+                  },
+                  "alternateName": {
+                    "type": "object",
+                    "properties": {
+                      "pactsAltName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "adjudicationDate": {
+                    "type": "string"
+                  },
+                  "convictedOffense": {
+                    "type": "object",
+                    "properties": {
+                      "adjudicatedStatusOrCitationDescrOrCitRecId": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "namespaceURI": {
+                                "type": "string"
+                              },
+                              "localPart": {
+                                "type": "string"
+                              },
+                              "prefix": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "object"
+                          },
+                          "nil": {
+                            "type": "boolean"
+                          },
+                          "globalScope": {
+                            "type": "boolean"
+                          },
+                          "typeSubstitued": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sentence": {
+                    "type": "object",
+                    "properties": {
+                      "prisonTime": {
+                        "type": "string"
+                      },
+                      "prisonStartDate": {
+                        "type": "string"
+                      },
+                      "prisonMeasure": {
+                        "type": "object"
+                      },
+                      "tsr": {
+                        "type": "object"
+                      },
+                      "tsrStateDate": {
+                        "type": "string"
+                      },
+                      "tsrMeasure": {
+                        "type": "object"
+                      },
+                      "fine": {
+                        "type": "string"
+                      },
+                      "assessment": {
+                        "type": "string"
+                      },
+                      "restitution": {
+                        "type": "string"
+                      },
+                      "sentenceType": {
+                        "type": "string"
+                      },
+                      "sentenceTypeId": {
+                        "type": "string"
+                      },
+                      "createdOnSentence": {
+                        "type": "string"
+                      },
+                      "conditionalRelease": {
+                        "type": "string"
+                      },
+                      "pactsSentenceDate": {
+                        "type": "string"
+                      },
+                      "bopProjectedReleaseDate": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
               },
               "deSeqno": {
                 "type": "integer"
@@ -315,7 +531,29 @@
                 "type": "string"
               },
               "docs": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "document": {
+                    "type": "object",
+                    "properties": {
+                      "dmDescription": {
+                        "type": "string"
+                      },
+                      "dmSizePages": {
+                        "type": "string"
+                      },
+                      "docLocation": {
+                        "type": "string"
+                      },
+                      "writeFile": {
+                        "type": "string"
+                      },
+                      "docLink": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
               }
             }
           }
