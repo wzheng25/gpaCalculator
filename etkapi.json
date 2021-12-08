@@ -206,4 +206,121 @@
                 "type": "string"
               },
               "ecfVersion": {
-                "type": 
+                "type": "string"
+              },
+              "runTime": {
+                "type": "string"
+              },
+              "dateSelected": {
+                "type": "string"
+              },
+              "csDftTotal": {
+                "type": "string"
+              },
+              "docTotal": {
+                "type": "string"
+              },
+              "ctoday": {
+                "type": "string"
+              }
+            }
+          },
+          "Entry": {
+            "type": "object",
+            "description": "The entry object contains the XML schema with attributes that identify the court case",
+            "properties": {
+              "caseId": {
+                "type": "integer"
+              },
+              "caseNum": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "caseType": {
+                "type": "string"
+              },
+              "defendant": {
+                "type": "string"
+              },
+              "prisonerId": {
+                "type": "string"
+              },
+              "dftNum": {
+                "type": "integer"
+              },
+              "filedDate": {
+                "type": "string"
+              },
+              "entryDate": {
+                "type": "string"
+              },
+              "dftRepresentedBy": {
+                "type": "object",
+                "properties": {
+                  "reprByName": {
+                    "type": "string"
+                  },
+                  "reprByEmail": {
+                    "type": "string"
+                  },
+                  "reprByPhone": {
+                    "type": "string"
+                  },
+                  "reprByOffice": {
+                    "type": "string"
+                  }
+                }
+              },
+              "usaRepresentedBy": {
+                "type": "object",
+                "properties": {
+                  "reprByName": {
+                    "type": "string"
+                  },
+                  "reprByEmail": {
+                    "type": "string"
+                  },
+                  "reprByPhone": {
+                    "type": "string"
+                  },
+                  "reprByOffice": {
+                    "type": "string"
+                  }
+                }
+              },
+              "countsAll": {
+                "type": "object"
+              },
+              "alsoKnownAs": {
+                "type": "string"
+              },
+              "pacts": {
+                "type": "object"
+              },
+              "deSeqno": {
+                "type": "integer"
+              },
+              "deDocNum": {
+                "type": "integer"
+              },
+              "deDocId": {
+                "type": "integer"
+              },
+              "docketText": {
+                "type": "string"
+              },
+              "dpType": {
+                "type": "string"
+              },
+              "docs": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
